@@ -112,10 +112,10 @@ nginxConf="$nginxConf      proxy_set_header        X-Real-IP \$remote_addr;\n"
 nginxConf="$nginxConf      proxy_set_header        X-Forwarded-For \$proxy_add_x_forwarded_for;\n"
 nginxConf="$nginxConf      proxy_set_header        X-Forwarded-Proto \$scheme;\n\n"
 
-nginixConf="# wss web socket secure fix error 400"
-nginixConf="proxy_set_header Upgrade $http_upgrade;"
-nginixConf="proxy_set_header Connection \"Upgrade\";"
-nginixConf="proxy_http_version 1.1;"
+nginxConf="$nginixConf	   # wss web socket secure fix error 400"
+nginxConf="$nginixConf	   proxy_set_header	Upgrade $http_upgrade;"
+nginxConf="$nginixConf	   proxy_set_header	Connection \"Upgrade\";"
+nginxConf="$nginixConf	   proxy_http_version	 1.1;"
 
 nginxConf="$nginxConf      proxy_ssl_session_reuse off;\n\n"
 
