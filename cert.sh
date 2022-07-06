@@ -6,7 +6,7 @@ portDocelowy=$3
 
 if [ -z "$adresDocelowy" ]
 then
- adresDocelowy="http://192.168.162.249"
+ adresDocelowy="192.168.162.249"
 fi
 
 
@@ -64,7 +64,7 @@ nginxConf="$nginxConf      proxy_set_header        X-Forwarded-Proto \$scheme;\n
 nginxConf="$nginxConf      proxy_ssl_session_reuse off;\n\n"
 
 nginxConf="$nginxConf      # Fix the It appears that your reverse proxy set up is broken error.\n"
-nginxConf="$nginxConf      proxy_pass          $adresDocelowy:$portDocelowy;\n"
+nginxConf="$nginxConf      proxy_pass          http://$adresDocelowy:$portDocelowy;\n"
 nginxConf="$nginxConf      proxy_read_timeout  90;\n\n"
 
 nginxConf="$nginxConf      proxy_redirect      $adresDocelowy:$portDocelowy https://$domena;\n\n"
@@ -119,7 +119,7 @@ nginxConf="$nginxConf     proxy_http_version	 1.1;\n"
 nginxConf="$nginxConf      proxy_ssl_session_reuse off;\n\n"
 
 nginxConf="$nginxConf      # Fix the It appears that your reverse proxy set up is broken error.\n"
-nginxConf="$nginxConf      proxy_pass          $adresDocelowy:$portDocelowy;\n"
+nginxConf="$nginxConf      proxy_pass          http://$adresDocelowy:$portDocelowy;\n"
 nginxConf="$nginxConf      proxy_read_timeout  90;\n\n"
 
 nginxConf="$nginxConf      proxy_redirect      $adresDocelowy:$portDocelowy https://$domena;\n\n"
